@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Clock, Globe, MessageSquare, Mic, Volume2 } from "lucide-react";
+import { Clock, Globe, MessageSquare, Mic, Volume2, Train } from "lucide-react";
 
 const Features: React.FC = () => {
   return (
