@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,17 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        rainbow: {
+          purple: '#8B5CF6',
+          blue: '#0EA5E9',
+          cyan: '#22D3EE',
+          green: '#10B981',
+          yellow: '#F59E0B',
+          orange: '#F97316',
+          red: '#EF4444',
+          pink: '#D946EF'
+        }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +95,31 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+        'train-move': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' }
+        },
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        },
+        'ticker': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' }
+        },
+        'pulse-soft': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.7' }
+        }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+        'train-move': 'train-move 15s linear infinite',
+        'fade-in': 'fade-in 0.5s ease-out',
+        'ticker': 'ticker 20s linear infinite',
+        'pulse-soft': 'pulse-soft 2s ease-in-out infinite'
 			}
 		}
 	},

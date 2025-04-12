@@ -1,12 +1,45 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from "react";
+import Navbar from "@/components/common/Navbar";
+import Footer from "@/components/common/Footer";
+import Hero from "@/components/home/Hero";
+import Features from "@/components/home/Features";
+import HowItWorks from "@/components/home/HowItWorks";
+import LanguageShowcase from "@/components/home/LanguageShowcase";
+import TrainStatusTicker from "@/components/common/TrainStatusTicker";
+import { dataService } from "@/lib/data";
+import { useEffect, useState } from "react";
+import { Train } from "@/types";
 
 const Index = () => {
+  const [trains, setTrains] = useState<Train[]>([]);
+
+  useEffect(() => {
+    const loadTrains = async () => {
+      try {
+        const fetchedTrains = await dataService.getTrains();
+        setTrains(fetchedTrains);
+      } catch (error) {
+        console.error("Failed to load trains:", error);
+      }
+    };
+
+    loadTrains();
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <TrainStatusTicker trains={trains} />
+      
+      <main className="flex-grow">
+        <Hero />
+        <Features />
+        <LanguageShowcase />
+        <HowItWorks />
+      </main>
+      
+      <Footer />
     </div>
   );
 };
