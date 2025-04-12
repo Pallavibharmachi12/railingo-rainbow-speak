@@ -12,6 +12,7 @@ import Register from "./pages/Register";
 import Admin from "./pages/Admin";
 import Announcements from "./pages/Announcements";
 import About from "./pages/About";
+import CarbonTracker from "./pages/CarbonTracker";
 import { AuthProvider } from "./contexts/AuthContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
@@ -32,6 +33,7 @@ const App = () => (
                 <Route path="/register" element={<Register />} />
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/announcements" element={<Announcements />} />
+                <Route path="/carbon" element={<CarbonTracker />} />
                 <Route path="/about" element={<About />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
